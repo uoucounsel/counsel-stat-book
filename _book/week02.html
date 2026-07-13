@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; 상관분석 – 상담교육통계분석의 기초</title>
+<title>1&nbsp; 통계의 기초개념 – 상담교육통계분석의 기초</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -68,8 +33,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week10.html" rel="next">
-<link href="./week08.html" rel="prev">
+<link href="./week03.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -149,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week09.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">상관분석</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week02.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">통계의 기초개념</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -182,7 +147,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+  <a href="./week02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">통계의 기초개념</span></span></a>
   </div>
 </li>
@@ -224,7 +189,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week09.html" class="sidebar-item-text sidebar-link active">
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">상관분석</span></span></a>
   </div>
 </li>
@@ -244,39 +209,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#상관분석이란" id="toc-상관분석이란" class="nav-link active" data-scroll-target="#상관분석이란"><span class="header-section-number">8.1</span> 상관분석이란?</a>
+  <li><a href="#통계의-목적" id="toc-통계의-목적" class="nav-link active" data-scroll-target="#통계의-목적"><span class="header-section-number">1.1</span> 통계의 목적</a></li>
+  <li><a href="#모집단과-표본" id="toc-모집단과-표본" class="nav-link" data-scroll-target="#모집단과-표본"><span class="header-section-number">1.2</span> 모집단과 표본</a>
   <ul class="collapse">
-  <li><a href="#개념" id="toc-개념" class="nav-link" data-scroll-target="#개념"><span class="header-section-number">8.1.1</span> 개념</a></li>
-  <li><a href="#연구-예시" id="toc-연구-예시" class="nav-link" data-scroll-target="#연구-예시"><span class="header-section-number">8.1.2</span> 연구 예시</a></li>
-  <li><a href="#산점도-scatterplot" id="toc-산점도-scatterplot" class="nav-link" data-scroll-target="#산점도-scatterplot"><span class="header-section-number">8.1.3</span> 산점도 (Scatterplot)</a></li>
+  <li><a href="#확률표집-방법-무선표집" id="toc-확률표집-방법-무선표집" class="nav-link" data-scroll-target="#확률표집-방법-무선표집"><span class="header-section-number">1.2.1</span> 확률표집 방법 (무선표집)</a></li>
+  <li><a href="#모수-통계치-추정치" id="toc-모수-통계치-추정치" class="nav-link" data-scroll-target="#모수-통계치-추정치"><span class="header-section-number">1.2.2</span> 모수, 통계치, 추정치</a></li>
   </ul></li>
-  <li><a href="#공분산-covariance" id="toc-공분산-covariance" class="nav-link" data-scroll-target="#공분산-covariance"><span class="header-section-number">8.2</span> 공분산 (Covariance)</a>
+  <li><a href="#변수의-구분" id="toc-변수의-구분" class="nav-link" data-scroll-target="#변수의-구분"><span class="header-section-number">1.3</span> 변수의 구분</a>
   <ul class="collapse">
-  <li><a href="#개념-1" id="toc-개념-1" class="nav-link" data-scroll-target="#개념-1"><span class="header-section-number">8.2.1</span> 개념</a></li>
-  <li><a href="#공식" id="toc-공식" class="nav-link" data-scroll-target="#공식"><span class="header-section-number">8.2.2</span> 공식</a></li>
-  <li><a href="#해석" id="toc-해석" class="nav-link" data-scroll-target="#해석"><span class="header-section-number">8.2.3</span> 해석</a></li>
-  <li><a href="#공분산의-한계" id="toc-공분산의-한계" class="nav-link" data-scroll-target="#공분산의-한계"><span class="header-section-number">8.2.4</span> 공분산의 한계</a></li>
+  <li><a href="#역할에-따른-구분" id="toc-역할에-따른-구분" class="nav-link" data-scroll-target="#역할에-따른-구분"><span class="header-section-number">1.3.1</span> 역할에 따른 구분</a></li>
+  <li><a href="#수의-속성에-의한-구분" id="toc-수의-속성에-의한-구분" class="nav-link" data-scroll-target="#수의-속성에-의한-구분"><span class="header-section-number">1.3.2</span> 수의 속성에 의한 구분</a></li>
+  <li><a href="#변수-유형과-통계분석방법" id="toc-변수-유형과-통계분석방법" class="nav-link" data-scroll-target="#변수-유형과-통계분석방법"><span class="header-section-number">1.3.3</span> 변수 유형과 통계분석방법</a></li>
   </ul></li>
-  <li><a href="#상관계수-correlation-coefficient" id="toc-상관계수-correlation-coefficient" class="nav-link" data-scroll-target="#상관계수-correlation-coefficient"><span class="header-section-number">8.3</span> 상관계수 (Correlation Coefficient)</a>
-  <ul class="collapse">
-  <li><a href="#pearson-적률상관계수" id="toc-pearson-적률상관계수" class="nav-link" data-scroll-target="#pearson-적률상관계수"><span class="header-section-number">8.3.1</span> Pearson 적률상관계수</a></li>
-  <li><a href="#cohen1988-해석-기준" id="toc-cohen1988-해석-기준" class="nav-link" data-scroll-target="#cohen1988-해석-기준"><span class="header-section-number">8.3.2</span> Cohen(1988) 해석 기준</a></li>
-  <li><a href="#산점도와-상관계수" id="toc-산점도와-상관계수" class="nav-link" data-scroll-target="#산점도와-상관계수"><span class="header-section-number">8.3.3</span> 산점도와 상관계수</a></li>
-  </ul></li>
-  <li><a href="#상관계수의-통계적-유의성-검정" id="toc-상관계수의-통계적-유의성-검정" class="nav-link" data-scroll-target="#상관계수의-통계적-유의성-검정"><span class="header-section-number">8.4</span> 상관계수의 통계적 유의성 검정</a>
-  <ul class="collapse">
-  <li><a href="#가설" id="toc-가설" class="nav-link" data-scroll-target="#가설"><span class="header-section-number">8.4.1</span> 가설</a></li>
-  <li><a href="#검정-절차" id="toc-검정-절차" class="nav-link" data-scroll-target="#검정-절차"><span class="header-section-number">8.4.2</span> 검정 절차</a></li>
-  <li><a href="#분석-결과-예시" id="toc-분석-결과-예시" class="nav-link" data-scroll-target="#분석-결과-예시"><span class="header-section-number">8.4.3</span> 분석 결과 예시</a></li>
-  </ul></li>
-  <li><a href="#상관분석-시-유의사항" id="toc-상관분석-시-유의사항" class="nav-link" data-scroll-target="#상관분석-시-유의사항"><span class="header-section-number">8.5</span> 상관분석 시 유의사항</a>
-  <ul class="collapse">
-  <li><a href="#기본-가정-확인" id="toc-기본-가정-확인" class="nav-link" data-scroll-target="#기본-가정-확인"><span class="header-section-number">8.5.1</span> 기본 가정 확인</a></li>
-  <li><a href="#주의해야-할-상황" id="toc-주의해야-할-상황" class="nav-link" data-scroll-target="#주의해야-할-상황"><span class="header-section-number">8.5.2</span> 주의해야 할 상황</a></li>
-  <li><a href="#상관관계-인과관계" id="toc-상관관계-인과관계" class="nav-link" data-scroll-target="#상관관계-인과관계"><span class="header-section-number">8.5.3</span> 상관관계 ≠ 인과관계</a></li>
-  </ul></li>
-  <li><a href="#핵심-요약" id="toc-핵심-요약" class="nav-link" data-scroll-target="#핵심-요약"><span class="header-section-number">8.6</span> 핵심 요약</a></li>
-  <li><a href="#r-실습" id="toc-r-실습" class="nav-link" data-scroll-target="#r-실습"><span class="header-section-number">8.7</span> R 실습</a></li>
+  <li><a href="#연구의-타당성" id="toc-연구의-타당성" class="nav-link" data-scroll-target="#연구의-타당성"><span class="header-section-number">1.4</span> 연구의 타당성</a></li>
   </ul>
 </nav>
     </div>
@@ -285,7 +230,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-week09" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">상관분석</span></span></h1>
+<h1 class="title"><span id="sec-week02" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">통계의 기초개념</span></span></h1>
 </div>
 
 
@@ -302,236 +247,157 @@ window.Quarto = {
 </header>
 
 
-<p><strong>핵심 질문</strong>: 두 연속변수 간에 어느 정도의 선형적 관계가 있는가?</p>
-<section id="상관분석이란" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="상관분석이란"><span class="header-section-number">8.1</span> 상관분석이란?</h2>
-<section id="개념" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="개념"><span class="header-section-number">8.1.1</span> 개념</h3>
-<p><strong>상관분석(correlation analysis)</strong>은 두 <strong>연속변수</strong> 간의 <strong>선형적 관계의 방향과 강도</strong>를 수량화하는 분석 방법이다. 관계가 있는지 없는지를 확인하고, 있다면 얼마나 강하게 관련되어 있는지를 파악한다.</p>
-</section>
-<section id="연구-예시" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="연구-예시"><span class="header-section-number">8.1.2</span> 연구 예시</h3>
+<section id="통계의-목적" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="통계의-목적"><span class="header-section-number">1.1</span> 통계의 목적</h2>
 <ul>
-<li><strong>예시 1.</strong> 상담자의 소진(burnout) 정도와 직무만족도 간에 유의한 상관이 있는가? — 소진이 높을수록 직무만족도가 낮아지는 <strong>부적 상관</strong> 예상</li>
-<li><strong>예시 2.</strong> 내담자의 불안 수준과 우울 수준 간에 유의한 상관이 있는가? — 불안과 우울이 함께 높아지는 <strong>정적 상관</strong> 예상</li>
+<li><strong>기술통계 (descriptive statistics)</strong>: 수집된 자료를 잘 요약하여 보여주고자 할 때 사용. 주어진 자료의 특징을 있는 그대로 기술하고자 함</li>
+<li><strong>추리통계 (inferential statistics)</strong>: 수집된 자료로부터 나온 결과를 일반화하고자 할 때 사용. 주어진 자료(표본 자료)를 바탕으로 모집단의 특징을 추론하고자 함</li>
 </ul>
 </section>
-<section id="산점도-scatterplot" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="산점도-scatterplot"><span class="header-section-number">8.1.3</span> 산점도 (Scatterplot)</h3>
-<p>상관분석을 시작하기 전에 두 변수의 관계를 <strong>산점도</strong>로 시각화하는 것이 필수적이다. X축은 독립변수(또는 변수 1), Y축은 종속변수(또는 변수 2)이며, 각 점은 하나의 사례(참여자)를 나타낸다. 점들의 분포 패턴으로 관계의 방향과 강도를 직관적으로 파악할 수 있다.</p>
-</section>
-</section>
-<section id="공분산-covariance" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="공분산-covariance"><span class="header-section-number">8.2</span> 공분산 (Covariance)</h2>
-<section id="개념-1" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="개념-1"><span class="header-section-number">8.2.1</span> 개념</h3>
-<p><strong>공분산(covariance)</strong>은 두 변수가 함께 변화하는 정도를 나타내는 지수다. 두 변수의 편차(각 점수 - 평균)의 곱을 평균낸 값이다.</p>
-</section>
-<section id="공식" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="공식"><span class="header-section-number">8.2.2</span> 공식</h3>
-<p><span class="math display">\[S_{XY} = \frac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{N-1}\]</span></p>
-</section>
-<section id="해석" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="해석"><span class="header-section-number">8.2.3</span> 해석</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>공분산 값</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>양수(+)</strong></td>
-<td>X가 높을 때 Y도 높은 경향 (정적 관계)</td>
-</tr>
-<tr class="even">
-<td><strong>음수(−)</strong></td>
-<td>X가 높을 때 Y는 낮은 경향 (부적 관계)</td>
-</tr>
-<tr class="odd">
-<td><strong>0에 가까울수록</strong></td>
-<td>두 변수 간 선형 관계가 약함</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="공분산의-한계" class="level3" data-number="8.2.4">
-<h3 data-number="8.2.4" class="anchored" data-anchor-id="공분산의-한계"><span class="header-section-number">8.2.4</span> 공분산의 한계</h3>
-<p>공분산은 측정 단위에 따라 값이 달라지므로 서로 다른 연구 결과를 직접 비교하기 어렵다. 이를 해결하기 위해 <strong>상관계수</strong>를 사용한다.</p>
-</section>
-</section>
-<section id="상관계수-correlation-coefficient" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="상관계수-correlation-coefficient"><span class="header-section-number">8.3</span> 상관계수 (Correlation Coefficient)</h2>
-<section id="pearson-적률상관계수" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="pearson-적률상관계수"><span class="header-section-number">8.3.1</span> Pearson 적률상관계수</h3>
-<p>공분산을 두 변수의 <strong>표준편차의 곱</strong>으로 나누어 표준화한 지수이다.</p>
-<p><span class="math display">\[r_{XY} = \frac{S_{XY}}{S_X \cdot S_Y}\]</span></p>
-<p>단위에 영향을 받지 않아 <span class="math inline">\(-1 \le r \le +1\)</span> 범위 내에 있다. 부호는 관계의 <strong>방향</strong>(정적/부적), 절대값은 관계의 <strong>강도</strong>(클수록 강한 관계)를 나타낸다.</p>
-</section>
-<section id="cohen1988-해석-기준" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="cohen1988-해석-기준"><span class="header-section-number">8.3.2</span> Cohen(1988) 해석 기준</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>r 절대값</th>
-<th>해석</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>.10 미만</td>
-<td>약한(small) 상관</td>
-</tr>
-<tr class="even">
-<td>.10 ~ .29</td>
-<td>약한(small) 상관</td>
-</tr>
-<tr class="odd">
-<td>.30 ~ .49</td>
-<td>중간(medium) 상관</td>
-</tr>
-<tr class="even">
-<td>.50 이상</td>
-<td>강한(large) 상관</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="산점도와-상관계수" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="산점도와-상관계수"><span class="header-section-number">8.3.3</span> 산점도와 상관계수</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>r 값</th>
-<th>산점도 패턴</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>r = 0.0</td>
-<td>점들이 무작위로 흩어짐</td>
-</tr>
-<tr class="even">
-<td>r = ±0.3</td>
-<td>느슨한 경향성</td>
-</tr>
-<tr class="odd">
-<td>r = ±0.6</td>
-<td>뚜렷한 경향성</td>
-</tr>
-<tr class="even">
-<td>r = ±0.9</td>
-<td>점들이 직선에 근접</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="상관계수의-통계적-유의성-검정" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="상관계수의-통계적-유의성-검정"><span class="header-section-number">8.4</span> 상관계수의 통계적 유의성 검정</h2>
-<section id="가설" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="가설"><span class="header-section-number">8.4.1</span> 가설</h3>
+<section id="모집단과-표본" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="모집단과-표본"><span class="header-section-number">1.2</span> 모집단과 표본</h2>
 <ul>
-<li><strong><span class="math inline">\(H_0\)</span></strong>: 모집단에서 두 변수 간 상관이 없다 (<span class="math inline">\(\rho = 0\)</span>)</li>
-<li><strong><span class="math inline">\(H_1\)</span></strong>: 모집단에서 두 변수 간 상관이 있다 (<span class="math inline">\(\rho \neq 0\)</span>)</li>
+<li><strong>모집단 (population, =전집)</strong>: 연구자가 관심 있는 전체 집단</li>
+<li><strong>표본 (sample)</strong>: 모집단을 대표하여 추출된 대상들</li>
+<li><strong>표본 크기 (sample size)</strong>: 표본의 사례 수</li>
+<li><strong>표집 (sampling)</strong>: 모집단에서 표본을 추출하는 과정</li>
+</ul>
+<p>추리통계를 위해서는 모집단을 잘 대표할 수 있게 표본을 추출해야 한다. 모집단에서 표집을 통해 표본을 얻고, 표본으로부터의 추론·일반화를 통해 다시 모집단에 대한 결론을 내리는 순환 구조를 가진다.</p>
+<section id="확률표집-방법-무선표집" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="확률표집-방법-무선표집"><span class="header-section-number">1.2.1</span> 확률표집 방법 (무선표집)</h3>
+<ul>
+<li><strong>단순무선표집 (simple random sampling)</strong>: 모집단에서 표본을 무작위로 추출. 모집단 구성원 전체 목록에서 난수표(또는 엑셀의 <code>RAND()</code> 함수 등)를 활용해 무작위 추출</li>
+<li><strong>층화표집 (=유층표집, stratified sampling)</strong>: 모집단 안에 존재하는 각 층(strata) 내에서 무선표집. 모집단의 주요 특성을 사전에 고려하여 반영할 수 있으므로 모집단 대표성이 커짐</li>
+<li><strong>군집표집 (=집락표집, cluster sampling)</strong>: 개인 단위로 표집이 어렵거나 비효율적일 때, 군집(cluster)을 단위로 무선표집. 시간과 비용 절감</li>
 </ul>
 </section>
-<section id="검정-절차" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="검정-절차"><span class="header-section-number">8.4.2</span> 검정 절차</h3>
-<ol type="1">
-<li>표본에서 상관계수(r)를 계산</li>
-<li>t 통계량으로 변환하여 유의확률(p값) 산출</li>
-<li>p &lt; α(.05)이면 영가설 기각 → “통계적으로 유의한 상관이 있다”</li>
-</ol>
+<section id="모수-통계치-추정치" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="모수-통계치-추정치"><span class="header-section-number">1.2.2</span> 모수, 통계치, 추정치</h3>
+<ul>
+<li><strong>모수 (모수치, parameter)</strong>: 모집단의 속성을 나타내는 값, 분포(또는 모형)의 특성을 나타내는 수치. 예: <span class="math inline">\(\mu\)</span> (모집단 평균), <span class="math inline">\(\sigma\)</span> (모집단 표준편차)</li>
+<li><strong>통계치 (statistic)</strong>: 표본의 속성을 보여주는 값. 예: 표본 평균, <span class="math inline">\(S\)</span> (표본 표준편차). <em>cf.</em> 통계량 / 통계치</li>
+<li><strong>추정치 (estimate)</strong>: 직접 확인할 수 없는 모수를 표본 자료를 바탕으로 추정한 값. 예: <span class="math inline">\(\hat\mu\)</span> (모집단 평균에 대한 추정치). <em>cf.</em> 추정량(estimator) / 추정치</li>
+</ul>
 </section>
-<section id="분석-결과-예시" class="level3" data-number="8.4.3">
-<h3 data-number="8.4.3" class="anchored" data-anchor-id="분석-결과-예시"><span class="header-section-number">8.4.3</span> 분석 결과 예시</h3>
-<p><strong>연구문제</strong>: 상담자의 소진과 직무만족도 간에 유의한 상관이 있는가?</p>
+</section>
+<section id="변수의-구분" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="변수의-구분"><span class="header-section-number">1.3</span> 변수의 구분</h2>
+<p><strong>변수(변인, variable)</strong>란 변하는 수(변할 수 있는 값), 여러 가지 값을 가지고 있는 하나의 속성을 말한다. 변수는 상수(고정되어 있는 값)와 구분되며, 적어도 두 가지 이상의 값을 가져야(즉, 변수여야) 통계분석에 활용할 수 있다.</p>
+<p>변수는 크게 두 가지 방식으로 구분한다.</p>
+<ul>
+<li>변수의 <strong>역할</strong>에 따른 구분: 독립변수, 종속변수, 매개변수, 조절변수 등</li>
+<li>수의 <strong>속성</strong>에 의한 구분: 범주형 변수, 연속형 변수</li>
+</ul>
+<section id="역할에-따른-구분" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="역할에-따른-구분"><span class="header-section-number">1.3.1</span> 역할에 따른 구분</h3>
+<p><strong>독립변수(independent variable, 설명변수, 예측변수)</strong>는 다른 변수에 ‘영향을 주는’ 변수이며, <strong>종속변수(dependent variable, 결과변수)</strong>는 독립변수에 의해 ‘영향을 받는’ 변수이다. (예: 학습 시간 → 학업 성적)</p>
+<p><strong>매개변수(mediator)</strong>는 독립변수와 종속변수의 관계에서 연결고리 역할을 하는 변수로, 효과의 중간 과정(중간 매커니즘)을 확인하는 데 유용하다. 예를 들어 학습시간이 공부에 대한 자신감을 높여서, 공부에 대한 자신감을 통해 학업성적에 영향을 미칠 때 ’공부에 대한 자신감’이 매개변수가 된다.</p>
+<p><strong>조절변수(moderator)</strong>는 독립변수와 종속변수의 관계를 달라지게 만드는 변수, 즉 독립변수가 종속변수에 미치는 영향을 더 커지게(또는 더 작아지게) 만드는 변수이다. 효과가 특히 누구에게(어떤 조건에서) 있는지 확인하는 데 유용하다. 예를 들어 학습시간이 학업성적에 미치는 영향이 학습방법에 따라서 달라질 때 ’학습방법’이 조절변수가 된다.</p>
+<p><strong>혼입변수(혼재변수, 혼동변수, confounding variable)</strong> 또는 <strong>공변인(공변수, covariate)</strong>은 독립변수 및 종속변수에 동시에 영향을 주어, 통제하지 않으면 독립변수와 종속변수의 관계에 대해 잘못된 해석을 하게 만드는 변수이다. 독립변수와 종속변수의 인과관계를 분석하기 위해서는 혼입변수에 대한 통제가 매우 중요하다. 혼입변수로 여겨져 통제하기 위해 모형에 포함한 변수를 <strong>통제변수(control variable)</strong>라고 한다.</p>
+<p>대표적인 예로, 아이스크림 판매량과 익사사고 발생률은 서로 관련이 있어 보이지만 실제로는 ’계절(온도)’이라는 혼입변수가 둘 다에 영향을 미치는 것이다. 마찬가지로 발 크기와 독해력의 관계는 ’연령(학년)’이라는 혼입변수로 설명된다.</p>
+</section>
+<section id="수의-속성에-의한-구분" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="수의-속성에-의한-구분"><span class="header-section-number">1.3.2</span> 수의 속성에 의한 구분</h3>
+<ul>
+<li><strong>범주형 변수(범주변수, categorical variable)</strong>: 서로 다른 범주(집단)를 구분하기 위해 서로 다른 숫자가 부여된 변수. 질적변수라고도 함</li>
+<li><strong>연속형 변수(연속변수, continuous variable)</strong>: 숫자가 양의 크기를 나타내면서, 연속적인 값(무한히 세분화된 값)을 가지는 변수
+<ul>
+<li>연속형 예: 체중, 키</li>
+<li>이산형 예: 나이</li>
+<li>일반적으로 등간성을 가지면서 어느 정도 세분화된 값을 보이는 경우에는 연속변수로 분석에 활용</li>
+</ul></li>
+</ul>
+<section id="척도의-4가지-구분-stevens-1946" class="level4" data-number="1.3.2.1">
+<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="척도의-4가지-구분-stevens-1946"><span class="header-section-number">1.3.2.1</span> 척도의 4가지 구분 (Stevens, 1946)</h4>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th></th>
-<th>소진</th>
-<th>직무만족도</th>
+<th>구분</th>
+<th style="text-align: center;">정보</th>
+<th style="text-align: center;">순위 정보</th>
+<th style="text-align: center;">등간성</th>
+<th style="text-align: center;">절대영점</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>소진</strong></td>
-<td>—</td>
-<td></td>
+<td>명명척도</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
 </tr>
 <tr class="even">
-<td><strong>직무만족도</strong></td>
-<td>−0.450***</td>
-<td>—</td>
+<td>서열척도</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="odd">
+<td>등간척도</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr class="even">
+<td>비율척도</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">O</td>
 </tr>
 </tbody>
 </table>
-<p>p &lt; .001 → 유의수준 .05에서 영가설 기각</p>
-<p><strong>결론</strong>: 상담자의 소진과 직무만족도 간에 통계적으로 유의한 부적 상관이 있다(r = −.450, p &lt; .001). 소진이 높을수록 직무만족도가 낮은 경향이 있다.</p>
+<ul>
+<li><strong>명명척도(nominal scale)</strong>: 구분을 위해 숫자가 사용된 척도. 예: 성별</li>
+<li><strong>서열척도(ordinal scale)</strong>: 높고 낮음(서열)을 나타내는 척도. 예: 성적등수</li>
+<li><strong>등간척도(interval scale)</strong>: 숫자 간격의 의미가 동일하면서(등간성 가짐), 0의 의미가 절대적이지 않은(임의영점) 척도. 예: 온도</li>
+<li><strong>비율척도(ratio scale)</strong>: 숫자 간격의 의미가 동일하면서(등간성 가짐), 0의 의미가 절대적인(절대영점) 척도. 예: 무게, 길이</li>
+</ul>
+<p><strong>Likert 척도</strong>는 엄밀하게는 서열척도로 볼 수 있으나, 일반적으로 등간척도로 간주하고 사용한다. 리커트척도 1문항에 대한 응답은 엄밀하게는 연속변수로 보기에 무리가 있으나, 여러 문항을 평균내어(합산하여) 사용하면 보다 세분화된 값을 가질 수 있다.</p>
 </section>
 </section>
-<section id="상관분석-시-유의사항" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="상관분석-시-유의사항"><span class="header-section-number">8.5</span> 상관분석 시 유의사항</h2>
-<section id="기본-가정-확인" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="기본-가정-확인"><span class="header-section-number">8.5.1</span> 기본 가정 확인</h3>
+<section id="변수-유형과-통계분석방법" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="변수-유형과-통계분석방법"><span class="header-section-number">1.3.3</span> 변수 유형과 통계분석방법</h3>
+<p>변수의 유형에 따라 적합한 통계분석방법이 달라진다.</p>
+<ul>
+<li>범주형 변수 → 집단별 사례 수와 비율 등</li>
+<li>연속형 변수 → 평균, 표준편차 등</li>
+</ul>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 45%">
-<col style="width: 54%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>가정</th>
-<th>내용</th>
+<th>종속변수 유형</th>
+<th>분석방법</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>선형성(linearity)</strong></td>
-<td>두 변수의 관계가 직선의 형태여야 함. 산점도로 확인 필요</td>
+<td>연속형 변수</td>
+<td>t검정, 분산분석, 회귀분석 등</td>
 </tr>
 <tr class="even">
-<td><strong>등분산성(homoscedasticity)</strong></td>
-<td>한 변수 값에 따라 다른 변수의 분산이 달라지지 않아야 함</td>
-</tr>
-</tbody>
-</table>
-<p>비선형 관계(U자형, 역U자형 등)에서 Pearson r을 사용하면 관계가 과소추정될 수 있다.</p>
-</section>
-<section id="주의해야-할-상황" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="주의해야-할-상황"><span class="header-section-number">8.5.2</span> 주의해야 할 상황</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 45%">
-<col style="width: 54%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>상황</th>
-<th>영향</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>이상치(outlier)</strong></td>
-<td>소수의 극단값이 r 값을 크게 왜곡</td>
-</tr>
-<tr class="even">
-<td><strong>절단(truncation)</strong></td>
-<td>특정 범위의 자료만 수집하면 실제보다 약한 상관이 추정됨</td>
-</tr>
-<tr class="odd">
-<td><strong>이질적 하위집단</strong></td>
-<td>서로 다른 집단이 혼합된 경우 허위상관이 발생할 수 있음</td>
+<td>범주형 변수</td>
+<td>교차분석, 로지스틱 회귀분석 등</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="상관관계-인과관계" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="상관관계-인과관계"><span class="header-section-number">8.5.3</span> 상관관계 ≠ 인과관계</h3>
+</section>
+<section id="연구의-타당성" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="연구의-타당성"><span class="header-section-number">1.4</span> 연구의 타당성</h2>
+<ul>
+<li><strong>외적타당성(external validity)</strong>: 연구결과를 모집단에 얼마나 일반화할 수 있는지에 대한 문제. 연구대상(표본)을 선정할 때 연구자가 관심있는 전체 집단을 잘 대표할 수 있도록 추출했는지, 즉 표본의 대표성과 관련이 있음
+<ul>
+<li>외적타당성을 높이기 위한 방법: 무선표집 방법을 적용</li>
+</ul></li>
+<li><strong>내적타당성(internal validity)</strong>: 연구문제 해결을 위한 연구설계 및 분석방법이 타당한지에 대한 문제. 변수간 관계를 분석하기 위해 혼입변수가 적절히 통제되었는지와 관련
+<ul>
+<li>내적타당성을 높이기 위한 방법: 실험연구에서 무선할당을 통해 집단(실험집단, 통제집단) 배정, 자료를 분석할 때 혼입변수를 통계적으로 통제하고서 분석</li>
+</ul></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -542,80 +408,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>상관관계가 높다고 해서 인과관계가 있다는 것을 의미하지 않는다.</p>
+<p>무선표집(random sampling)은 <strong>외적타당성</strong>과, 무선할당(random assignment)은 <strong>내적타당성</strong>과 관련된다.</p>
 </div>
-</div>
-<p>인과관계의 조건:</p>
-<ol type="1">
-<li><strong>상관관계(empirical association)</strong>: 두 변수가 함께 변화</li>
-<li><strong>원인의 선행성(temporal precedence)</strong>: 원인이 결과보다 시간적으로 앞서야 함</li>
-<li><strong>제3요인의 불변성(nospuriousness)</strong>: 제3의 변수가 관계를 설명하지 않아야 함</li>
-</ol>
-<p><strong>예시</strong>: 상담자의 슈퍼비전 참여 횟수와 내담자 만족도 간의 정적 상관 → 슈퍼비전이 만족도를 높이는 것인지, 아니면 유능한 상담자가 슈퍼비전도 많이 받고 내담자 만족도도 높은 것인지 인과관계를 단정할 수 없다.</p>
-</section>
-</section>
-<section id="핵심-요약" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="핵심-요약"><span class="header-section-number">8.6</span> 핵심 요약</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>구분</th>
-<th>내용</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>분석 목적</strong></td>
-<td>두 연속변수 간 선형 관계의 방향과 강도 파악</td>
-</tr>
-<tr class="even">
-<td><strong>공분산</strong></td>
-<td><span class="math inline">\(S_{XY} = \sum(X_i-\bar X)(Y_i-\bar Y)/(N-1)\)</span>, 단위 의존적</td>
-</tr>
-<tr class="odd">
-<td><strong>상관계수</strong></td>
-<td><span class="math inline">\(r = S_{XY}/(S_X \cdot S_Y)\)</span>, <span class="math inline">\(-1 \le r \le +1\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>Cohen 기준</strong></td>
-<td>.10=소, .30=중, .50=대</td>
-</tr>
-<tr class="odd">
-<td><strong>유의성 검정</strong></td>
-<td><span class="math inline">\(H_0: \rho=0\)</span>, p &lt; .05이면 기각</td>
-</tr>
-<tr class="even">
-<td><strong>핵심 가정</strong></td>
-<td>선형성, 등분산성</td>
-</tr>
-<tr class="odd">
-<td><strong>주의사항</strong></td>
-<td>이상치, 절단, 이질 집단, 상관≠인과</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="r-실습" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="r-실습"><span class="header-section-number">8.7</span> R 실습</h2>
-<p>상관분석은 R의 <code>cor()</code> / <code>cor.test()</code>로 수행할 수 있다. <code>counseling_practice_data.csv</code>의 코드북(“Week 9c — 상관분석” 절)은 <code>Stress</code>, <code>Anxiety</code>, <code>Depression</code>, <code>SelfEsteem</code>, <code>SocialSupport</code>, <code>TherapeuticAlliance</code>, <code>CounselingEffects</code>(상담 효과) 변수 간의 상관관계를 권장 조합으로 제시한다.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"counseling_practice_data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Stress"</span>, <span class="st">"Anxiety"</span>, <span class="st">"Depression"</span>, <span class="st">"SelfEsteem"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          <span class="st">"SocialSupport"</span>, <span class="st">"TherapeuticAlliance"</span>, <span class="st">"CounselingEffects"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 상관행렬 (Pearson)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(dat[, vars], <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 두 변수 간 상관계수의 유의성 검정 (예: 스트레스와 불안)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(dat<span class="sc">$</span>Stress, dat<span class="sc">$</span>Anxiety)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 산점도로 선형성 확인 (예: 사회적 지지와 스트레스)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>SocialSupport, dat<span class="sc">$</span>Stress)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -1024,13 +818,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week08.html" class="pagination-link" aria-label="교차분석">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">교차분석</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="머리말">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">머리말</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week10.html" class="pagination-link" aria-label="회귀분석">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">회귀분석</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./week03.html" class="pagination-link" aria-label="자료의 기술">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">자료의 기술</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
