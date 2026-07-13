@@ -307,7 +307,7 @@ $$Z_{ab} = \frac{a \times b}{\sqrt{a^2 \times se_b^2 + b^2 \times se_a^2}}$$
 
 **방법 2: 부트스트랩(Bootstrapping) 방법 — 현재 권장**: 표본자료로부터 **반복 표집**(통상 1000~5000회)을 통해 분포를 경험적으로 생성한다. 정규분포 가정이 불필요하여 **더 정확한 신뢰구간**을 제공한다. **95% 신뢰구간에 0이 포함되지 않으면** 매개효과가 통계적으로 유의하다.
 
-**jamovi에서 분석 방법**: `medmod` 모듈 설치 → Mediation 메뉴 → Predictor: `CounselorEmpathy`, Mediator: `TherapeuticAlliance`, Outcome: `SymptomReduction` → Bootstrap 1000 samples 선택
+**분석 예시**: Predictor(X): `CounselorEmpathy`, Mediator(M): `TherapeuticAlliance`, Outcome(Y): `SymptomReduction`, Bootstrap 1000 samples
 
 | Effect | Label | Estimate | SE | Lower | Upper | % Mediation |
 |--------|-------|----------|----|-------|-------|-------------|
@@ -325,15 +325,14 @@ $$Z_{ab} = \frac{a \times b}{\sqrt{a^2 \times se_b^2 + b^2 \times se_a^2}}$$
 | **모형** | X, M, X×M → Y | X→M→Y |
 | **핵심 검증** | 상호작용항($b_3$) 유의성 | 간접효과($a\times b$) 유의성 |
 | **권장 방법** | 연속변수 centering | 부트스트랩(bootstrap) |
-| **jamovi** | Linear Regression에서 직접 구성 | medmod module → Mediation |
 
 ## R 실습
 
-이 실습은 jamovi로 진행했던 `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 및 `실습예제.html` 참고) 회귀분석 실습을 R로 재현한 것이다.
+이 실습은 `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 및 `실습예제.html` 참고)를 이용한 회귀분석 R 실습이다.
 
 ### 단순회귀분석
 
-jamovi 실습(`week13/simplereg.png`)에서는 Linear Regression에서 Dependent Variable = `CounselingEffects`(상담 효과), Covariates = `CounselorEmpathy`(상담자 공감)로 지정하였다. 이는 `실습예제.html`의 Week 10–11 예제 1("상담자 공감(CounselorEmpathy)은 상담 효과(CounselingEffects)를 유의하게 예측하는가?")과 일치한다.
+종속변수(Dependent Variable) = `CounselingEffects`(상담 효과), 설명변수(Covariate) = `CounselorEmpathy`(상담자 공감)로 지정한다. 이는 `실습예제.html`의 Week 10–11 예제 1("상담자 공감(CounselorEmpathy)은 상담 효과(CounselingEffects)를 유의하게 예측하는가?")과 일치한다.
 
 ```{r}
 #| eval: false
@@ -345,7 +344,7 @@ summary(fit_simple)   # 회귀계수(b), 표준오차, t값, p값, R^2, F검정 
 
 ### 다중회귀분석
 
-jamovi 실습(`week13/multiplereg.png`)에서는 Dependent Variable = `CounselingEffects`, Covariates = `CounselorEmpathy`, `SocialSupport`, `TherapeuticAlliance`, `Depression`으로 지정하고, Assumption Checks에서 Collinearity statistics(VIF)를 체크하였다.
+종속변수(Dependent Variable) = `CounselingEffects`, 설명변수(Covariates) = `CounselorEmpathy`, `SocialSupport`, `TherapeuticAlliance`, `Depression`으로 지정하고, 다중공선성(Collinearity statistics, VIF)을 함께 확인한다.
 
 ```{r}
 #| eval: false
@@ -384,5 +383,5 @@ summary(fit_mod2)
 ```
 
 ::: {.callout-note}
-`week13/simplereg.png`, `multiplereg.png` 스크린샷의 변수 목록에는 `CounselingApproach`, `AttachmentStyle` 등 실제 `counseling_practice_data.csv`에 없는 변수명도 함께 보이지만, 실제로 분석에 투입된 변수(Dependent Variable, Covariates에 지정된 변수)는 `CounselingEffects`, `CounselorEmpathy`, `SocialSupport`, `TherapeuticAlliance`, `Depression`으로 모두 CSV의 실제 열 이름과 일치하여, 위 R 코드는 스크린샷에 지정된 변수 조합을 그대로 사용하였다. 매개효과(부트스트랩) 분석은 jamovi의 `medmod` 모듈에 해당하는 기본 R 함수가 없어(별도 패키지 `mediation`, `lavaan` 등이 필요) 이번 실습에는 포함하지 않았다.
+매개효과(부트스트랩) 분석은 기본 R 함수만으로는 수행이 어려워(별도 패키지 `mediation`, `lavaan` 등이 필요) 이번 실습에는 포함하지 않았다.
 :::

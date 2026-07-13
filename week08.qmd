@@ -99,7 +99,7 @@ $$df = (\text{행의 수} - 1) \times (\text{열의 수} - 1)$$
 
 $$\chi^2 = \frac{(92-75.8)^2}{75.8} + \frac{(38-54.2)^2}{54.2} + \frac{(55-58.3)^2}{58.3} + \frac{(45-41.7)^2}{41.7} + \frac{(28-40.8)^2}{40.8} + \frac{(42-29.2)^2}{29.2} = 18.41$$
 
-**JAMOVI 분석 결과**
+**분석 결과**
 
 | 통계량 | 값 |
 |--------|---|
@@ -133,7 +133,7 @@ $$\chi^2 = \frac{(92-75.8)^2}{75.8} + \frac{(38-54.2)^2}{54.2} + \frac{(55-58.3)
 
 ## R 실습
 
-jamovi의 Contingency Tables 분석은 R의 `chisq.test()`로 재현할 수 있다. `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 참고)에는 `Gender`(0=남성, 1=여성)와 `CounselingType`(1=개인상담, 2=집단상담, 3=온라인상담) 변수가 있으며, 코드북의 "Week 9b — 교차분석" 절에서 이 두 변수 간의 연관성을 검증하는 것을 연습문제로 제시하고 있다.
+교차분석은 R의 `chisq.test()`로 수행할 수 있다. `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 참고)에는 `Gender`(0=남성, 1=여성)와 `CounselingType`(1=개인상담, 2=집단상담, 3=온라인상담) 변수가 있으며, 코드북의 "Week 9b — 교차분석" 절에서 이 두 변수 간의 연관성을 검증하는 것을 연습문제로 제시하고 있다.
 
 ```{r}
 #| eval: false
@@ -149,7 +149,3 @@ chisq.test(tab)
 # 행 퍼센트 확인
 prop.table(tab, margin = 1)
 ```
-
-::: {.callout-note}
-`week13/chi-test.png` jamovi 스크린샷에는 `CounselingApproach`, `AttachmentStyle`이라는 변수명이 Rows/Columns에 지정되어 있으나, 이 변수명은 실제로 제공된 `counseling_practice_data.csv`의 열 이름(`ID, Age, Gender, CounselingType, Sessions, CounselingDuration, Stress, Anxiety, Depression, SelfEsteem, SocialSupport, CounselorEmpathy, TherapeuticAlliance, CounselingEffects, Wellbeing, Satisfaction`)에는 존재하지 않는다. 즉 스크린샷은 코드북/CSV와 다른 버전의 데이터셋을 사용한 것으로 보인다. 따라서 위 R 코드는 스크린샷의 변수명 대신, 코드북에서 "Week 9b — 교차분석" 예시로 명시한 `Gender`와 `CounselingType` 조합을 사용하였다.
-:::

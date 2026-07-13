@@ -80,7 +80,7 @@ $$r_{XY} = \frac{S_{XY}}{S_X \cdot S_Y}$$
 2. t 통계량으로 변환하여 유의확률(p값) 산출
 3. p < α(.05)이면 영가설 기각 → "통계적으로 유의한 상관이 있다"
 
-### JAMOVI 분석 결과 예시
+### 분석 결과 예시
 
 **연구문제**: 상담자의 소진과 직무만족도 간에 유의한 상관이 있는가?
 
@@ -140,7 +140,7 @@ p < .001 → 유의수준 .05에서 영가설 기각
 
 ## R 실습
 
-jamovi의 Correlation Matrix 분석은 R의 `cor()` / `cor.test()`로 재현할 수 있다. `counseling_practice_data.csv`의 코드북("Week 9c — 상관분석" 절)은 `Stress`, `Anxiety`, `Depression`, `SelfEsteem`, `SocialSupport`, `TherapeuticAlliance`, `CounselingEffects`(상담 효과) 변수 간의 상관관계를 권장 조합으로 제시한다.
+상관분석은 R의 `cor()` / `cor.test()`로 수행할 수 있다. `counseling_practice_data.csv`의 코드북("Week 9c — 상관분석" 절)은 `Stress`, `Anxiety`, `Depression`, `SelfEsteem`, `SocialSupport`, `TherapeuticAlliance`, `CounselingEffects`(상담 효과) 변수 간의 상관관계를 권장 조합으로 제시한다.
 
 ```{r}
 #| eval: false
@@ -158,7 +158,3 @@ cor.test(dat$Stress, dat$Anxiety)
 # 산점도로 선형성 확인 (예: 사회적 지지와 스트레스)
 plot(dat$SocialSupport, dat$Stress)
 ```
-
-::: {.callout-note}
-`week13/corr.png` jamovi 스크린샷의 변수 목록에는 `CounselingApproach`, `AttachmentStyle`, `SymptomReduction` 등 실제 `counseling_practice_data.csv`(`ID, Age, Gender, CounselingType, Sessions, CounselingDuration, Stress, Anxiety, Depression, SelfEsteem, SocialSupport, CounselorEmpathy, TherapeuticAlliance, CounselingEffects, Wellbeing, Satisfaction`)에 없는 변수명이 포함되어 있어, 스크린샷이 코드북과 다른 버전의 데이터셋에서 캡처된 것으로 보인다. 이에 따라 위 R 코드는 스크린샷의 변수 선택 대신, 코드북이 명시적으로 권장한 변수 조합(Stress, Anxiety, Depression, SelfEsteem, SocialSupport, TherapeuticAlliance, CounselingEffects)을 사용하였다.
-:::
