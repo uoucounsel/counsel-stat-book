@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "상담교육통계분석의 기초"
+  author: "박준영"
+  date: today
+  chapters:
+    - index.qmd
+    - week02.qmd
+    - week03.qmd
+    - week04.qmd
+    - week05.qmd
+    - week06.qmd
+    - week07.qmd
+    - week08.qmd
+    - week09.qmd
+    - week10.qmd
+
+format:
+  html:
+    theme: cosmo
+    number-sections: true
+    toc: true
