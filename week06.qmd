@@ -170,3 +170,31 @@ F(2, 104) = 15.048, p < .001: 성취수준에 따라 학업효능감에 통계�
 2. **F통계량**: 집단 간 분산($MS_B$) / 집단 내 분산($MS_W$) — F가 클수록 집단 차이 유의
 3. **사후비교**: ANOVA에서 $H_0$ 기각 시, 어느 집단 간 차이인지 파악 (Tukey, Scheffé, Bonferroni)
 4. **가정**: 정규성 + 등분산 — 위배 시 변환 또는 Welch F 검정
+
+## R 실습
+
+일원분산분석은 R의 `aov()` 함수로 수행한다. `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 참고)에는 `CounselingType`(1=개인상담, 2=집단상담, 3=온라인상담)과 심리적 안녕감(`Wellbeing`) 변수가 있으며, 코드북의 "Week 7 — 일원분산분석" 절에서 상담 유형에 따른 심리적 안녕감의 차이를 검증하는 것을 연습문제로 제시하고 있다.
+
+```{r}
+#| eval: false
+dat <- read.csv("counseling_practice_data.csv")
+
+# 집단변수를 요인(factor)으로 변환
+dat$CounselingType <- factor(dat$CounselingType,
+                             levels = c(1, 2, 3),
+                             labels = c("개인상담", "집단상담", "온라인상담"))
+
+# 집단별 기술통계
+tapply(dat$Wellbeing, dat$CounselingType, mean)
+tapply(dat$Wellbeing, dat$CounselingType, sd)
+
+# 일원분산분석
+fit <- aov(Wellbeing ~ CounselingType, data = dat)
+summary(fit)   # F값, 자유도, p값 확인
+
+# 등분산 가정 확인 (Levene's test는 car 패키지 필요)
+# car::leveneTest(Wellbeing ~ CounselingType, data = dat)
+
+# 사후비교 (Tukey HSD)
+TukeyHSD(fit)
+```

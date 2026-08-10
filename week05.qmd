@@ -467,22 +467,21 @@ table(aca$GENDER)
 table(aca$SCHOOL)
 
 # 2. 학업 자기효능감 점수 생성 (EFFICACY_03, EFFICACY_06은 역채점: 5 - 원점수)
-aca$EFFICACY_03_R <- 5 - aca$EFFICACY_03
-aca$EFFICACY_06_R <- 5 - aca$EFFICACY_06
-efficacy_items <- c("EFFICACY_01","EFFICACY_02","EFFICACY_03_R","EFFICACY_04",
-                     "EFFICACY_05","EFFICACY_06_R","EFFICACY_07","EFFICACY_08")
-aca$자기효능감 <- rowMeans(aca[, efficacy_items])
+aca$자기효능감 <- (aca$EFFICACY_01 + aca$EFFICACY_02 + (5 - aca$EFFICACY_03) +
+                   aca$EFFICACY_04 + aca$EFFICACY_05 + (5 - aca$EFFICACY_06) +
+                   aca$EFFICACY_07 + aca$EFFICACY_08) / 8
 mean(aca$자기효능감); sd(aca$자기효능감)
 
 # 3. 학업 스트레스 점수 생성 및 성별 차이 검정
-stress_items <- paste0("STRESS_", sprintf("%02d", 1:10))
-aca$스트레스 <- rowMeans(aca[, stress_items])
+aca$스트레스 <- (aca$STRESS_01 + aca$STRESS_02 + aca$STRESS_03 + aca$STRESS_04 +
+                 aca$STRESS_05 + aca$STRESS_06 + aca$STRESS_07 + aca$STRESS_08 +
+                 aca$STRESS_09 + aca$STRESS_10) / 10
 t.test(스트레스 ~ GENDER, data = aca, var.equal = TRUE)
 
 # 4. 학습동기 하위영역 점수 생성
-aca$내재동기 <- rowMeans(aca[, c("MOTIV_01","MOTIV_02","MOTIV_03","MOTIV_04")])
-aca$외재동기 <- rowMeans(aca[, c("MOTIV_05","MOTIV_06","MOTIV_07","MOTIV_08")])
-aca$무동기   <- rowMeans(aca[, c("MOTIV_09","MOTIV_10","MOTIV_11","MOTIV_12")])
+aca$내재동기 <- (aca$MOTIV_01 + aca$MOTIV_02 + aca$MOTIV_03 + aca$MOTIV_04) / 4
+aca$외재동기 <- (aca$MOTIV_05 + aca$MOTIV_06 + aca$MOTIV_07 + aca$MOTIV_08) / 4
+aca$무동기   <- (aca$MOTIV_09 + aca$MOTIV_10 + aca$MOTIV_11 + aca$MOTIV_12) / 4
 
 # 5. 학습동기 하위영역별 성별 차이 검정
 t.test(내재동기 ~ GENDER, data = aca, var.equal = TRUE)

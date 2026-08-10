@@ -186,3 +186,35 @@ p = .046 < .05이므로 영가설 기각: **집단 간 유의한 차이 존재**
 3. **상호작용 효과**: 한 요인의 효과가 다른 요인의 수준에 따라 달라지는 것 (= 조절효과)
 4. **평균도표**: 두 선이 평행하면 상호작용 없음, 교차하거나 기울기가 다르면 상호작용 존재
 5. **분석 선택**: 두 요인의 상호작용에 관심이 있으면 각각 분석하지 말고 이원분산분석 실시
+
+## R 실습
+
+이원분산분석도 R의 `aov()` 함수로 수행하되, 두 요인과 그 상호작용항을 모형에 함께 넣는다. `counseling_practice_data.csv`(상담학 실습 데이터, `counseling_practice_data_codebook.md` 참고)의 "Week 9a — 이원분산분석" 절은 상담 유형(`CounselingType`)과 성별(`Gender`)이 심리적 안녕감(`Wellbeing`)에 미치는 영향과 그 상호작용을 검증하는 것을 연습문제로 제시하고 있다.
+
+```{r}
+#| eval: false
+dat <- read.csv("counseling_practice_data.csv")
+
+# 두 요인을 요인(factor)으로 변환
+dat$CounselingType <- factor(dat$CounselingType,
+                             levels = c(1, 2, 3),
+                             labels = c("개인상담", "집단상담", "온라인상담"))
+dat$Gender <- factor(dat$Gender, levels = c(0, 1), labels = c("남성", "여성"))
+
+# 셀별 평균 (요인 조합별 기술통계)
+tapply(dat$Wellbeing, list(dat$CounselingType, dat$Gender), mean)
+
+# 이원분산분석 (주 효과 + 상호작용 효과)
+fit <- aov(Wellbeing ~ CounselingType * Gender, data = dat)
+summary(fit)   # 두 주 효과와 상호작용(CounselingType:Gender)의 F, p값 확인
+
+# 상호작용 평균도표
+interaction.plot(dat$CounselingType, dat$Gender, dat$Wellbeing)
+
+# 사후비교 (Tukey HSD)
+TukeyHSD(fit)
+```
+
+::: {.callout-note}
+`Wellbeing ~ CounselingType * Gender`는 `CounselingType + Gender + CounselingType:Gender`와 같은 의미로, 두 주 효과와 상호작용 효과를 모두 포함한다.
+:::
