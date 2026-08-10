@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -230,6 +265,7 @@ window.Quarto = {
   <li><a href="#예시-2-피드백-제공-학습시간배분방식-영어회화능력" id="toc-예시-2-피드백-제공-학습시간배분방식-영어회화능력" class="nav-link" data-scroll-target="#예시-2-피드백-제공-학습시간배분방식-영어회화능력"><span class="header-section-number">6.3.2</span> 예시 2 — 피드백 제공 × 학습시간배분방식 → 영어회화능력</a></li>
   </ul></li>
   <li><a href="#핵심-요약" id="toc-핵심-요약" class="nav-link" data-scroll-target="#핵심-요약"><span class="header-section-number">6.4</span> 핵심 요약</a></li>
+  <li><a href="#r-실습" id="toc-r-실습" class="nav-link" data-scroll-target="#r-실습"><span class="header-section-number">6.5</span> R 실습</a></li>
   </ul>
 </nav>
     </div>
@@ -744,6 +780,45 @@ Note
 <li><strong>평균도표</strong>: 두 선이 평행하면 상호작용 없음, 교차하거나 기울기가 다르면 상호작용 존재</li>
 <li><strong>분석 선택</strong>: 두 요인의 상호작용에 관심이 있으면 각각 분석하지 말고 이원분산분석 실시</li>
 </ol>
+</section>
+<section id="r-실습" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="r-실습"><span class="header-section-number">6.5</span> R 실습</h2>
+<p>이원분산분석도 R의 <code>aov()</code> 함수로 수행하되, 두 요인과 그 상호작용항을 모형에 함께 넣는다. <code>counseling_practice_data.csv</code>(상담학 실습 데이터, <code>counseling_practice_data_codebook.md</code> 참고)의 “Week 9a — 이원분산분석” 절은 상담 유형(<code>CounselingType</code>)과 성별(<code>Gender</code>)이 심리적 안녕감(<code>Wellbeing</code>)에 미치는 영향과 그 상호작용을 검증하는 것을 연습문제로 제시하고 있다.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"counseling_practice_data.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 두 요인을 요인(factor)으로 변환</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>CounselingType <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>CounselingType,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"개인상담"</span>, <span class="st">"집단상담"</span>, <span class="st">"온라인상담"</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>Gender, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"남성"</span>, <span class="st">"여성"</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 셀별 평균 (요인 조합별 기술통계)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat<span class="sc">$</span>Wellbeing, <span class="fu">list</span>(dat<span class="sc">$</span>CounselingType, dat<span class="sc">$</span>Gender), mean)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 이원분산분석 (주 효과 + 상호작용 효과)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(Wellbeing <span class="sc">~</span> CounselingType <span class="sc">*</span> Gender, <span class="at">data =</span> dat)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)   <span class="co"># 두 주 효과와 상호작용(CounselingType:Gender)의 F, p값 확인</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 상호작용 평균도표</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(dat<span class="sc">$</span>CounselingType, dat<span class="sc">$</span>Gender, dat<span class="sc">$</span>Wellbeing)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 사후비교 (Tukey HSD)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Wellbeing ~ CounselingType * Gender</code>는 <code>CounselingType + Gender + CounselingType:Gender</code>와 같은 의미로, 두 주 효과와 상호작용 효과를 모두 포함한다.</p>
+</div>
+</div>
 
 
 </section>
