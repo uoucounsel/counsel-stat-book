@@ -384,21 +384,32 @@ t검정에서 가장 많이 활용되는 효과크기 지수이다.
 
 ### 자료 불러오기 및 파생변수 생성
 
-BDI 사전/사후 21개 문항의 합계(총점)와 평균은 `rowSums()` / `rowMeans()`로 만들 수 있다.
+BDI 사전/사후 21개 문항의 합계(총점)와 평균은 문항을 직접 더하여 만들 수 있다.
 
 ```{r}
 #| eval: false
 bdi <- read.csv("BDI_data.csv", fileEncoding = "UTF-8")
 
-# 사전/사후 문항 열 지정
-pre_items  <- paste0("BDI_사전_", sprintf("%02d", 1:21))
-post_items <- paste0("BDI_사후_", sprintf("%02d", 1:21))
+# 파생변수: 총점 (21개 문항을 직접 더함)
+bdi$사전_총점 <- bdi$BDI_사전_01 + bdi$BDI_사전_02 + bdi$BDI_사전_03 +
+                 bdi$BDI_사전_04 + bdi$BDI_사전_05 + bdi$BDI_사전_06 +
+                 bdi$BDI_사전_07 + bdi$BDI_사전_08 + bdi$BDI_사전_09 +
+                 bdi$BDI_사전_10 + bdi$BDI_사전_11 + bdi$BDI_사전_12 +
+                 bdi$BDI_사전_13 + bdi$BDI_사전_14 + bdi$BDI_사전_15 +
+                 bdi$BDI_사전_16 + bdi$BDI_사전_17 + bdi$BDI_사전_18 +
+                 bdi$BDI_사전_19 + bdi$BDI_사전_20 + bdi$BDI_사전_21
 
-# 파생변수: 총점, 평균
-bdi$사전_총점 <- rowSums(bdi[, pre_items])
-bdi$사후_총점 <- rowSums(bdi[, post_items])
-bdi$사전_평균 <- rowMeans(bdi[, pre_items])
-bdi$사후_평균 <- rowMeans(bdi[, post_items])
+bdi$사후_총점 <- bdi$BDI_사후_01 + bdi$BDI_사후_02 + bdi$BDI_사후_03 +
+                 bdi$BDI_사후_04 + bdi$BDI_사후_05 + bdi$BDI_사후_06 +
+                 bdi$BDI_사후_07 + bdi$BDI_사후_08 + bdi$BDI_사후_09 +
+                 bdi$BDI_사후_10 + bdi$BDI_사후_11 + bdi$BDI_사후_12 +
+                 bdi$BDI_사후_13 + bdi$BDI_사후_14 + bdi$BDI_사후_15 +
+                 bdi$BDI_사후_16 + bdi$BDI_사후_17 + bdi$BDI_사후_18 +
+                 bdi$BDI_사후_19 + bdi$BDI_사후_20 + bdi$BDI_사후_21
+
+# 파생변수: 평균 (총점을 문항 수 21로 나눔)
+bdi$사전_평균 <- bdi$사전_총점 / 21
+bdi$사후_평균 <- bdi$사후_총점 / 21
 ```
 
 ### 기술통계
