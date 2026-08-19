@@ -177,6 +177,9 @@ F(2, 104) = 15.048, p < .001: 성취수준에 따라 학업효능감에 통계�
 
 ```{r}
 #| eval: false
+install.packages("car")
+library(car)
+
 dat <- read.csv("counseling_practice_data.csv")
 
 # 집단변수를 요인(factor)으로 변환
@@ -192,8 +195,8 @@ tapply(dat$Wellbeing, dat$CounselingType, sd)
 fit <- aov(Wellbeing ~ CounselingType, data = dat)
 summary(fit)   # F값, 자유도, p값 확인
 
-# 등분산 가정 확인 (Levene's test는 car 패키지 필요)
-# car::leveneTest(Wellbeing ~ CounselingType, data = dat)
+# 등분산 가정 확인 (Levene's test)
+car::leveneTest(Wellbeing ~ CounselingType, data = dat)
 
 # 사후비교 (Tukey HSD)
 TukeyHSD(fit)
